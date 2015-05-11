@@ -1,0 +1,17 @@
+{
+  "uuid": "c77d853c-32d5-4c61-a016-bc612d6579a3",
+  "shortName": "Metronome",
+  "longName": "Metronome",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 1,
+  "versionLabel": "1.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
