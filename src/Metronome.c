@@ -25,6 +25,7 @@ static bool running = false;
  
 static Window *window;
 static TextLayer *text_layer;
+static TextLayer *bpm_layer;
 
 static void timer_handler(){
 	if (!running) {
@@ -112,11 +113,17 @@ static void window_load(Window *window) {
   	Layer *window_layer = window_get_root_layer(window);
   	GRect bounds = layer_get_bounds(window_layer);
 
-  	text_layer = text_layer_create((GRect) { .origin = { 0, 52 }, .size = { bounds.size.w, bounds.size.h } });
+  	text_layer = text_layer_create((GRect) { .origin = { 0, 32 }, .size = { bounds.size.w, 50 } });
   	text_layer_set_text(text_layer, "120");
   	text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
 	text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
   	layer_add_child(window_layer, text_layer_get_layer(text_layer));
+
+	bpm_layer = text_layer_create((GRect) { .origin = { 0, 82}, .size = { bounds.size.w, 40 } } );
+	text_layer_set_text(bpm_layer, "bpm");
+	text_layer_set_text_alignment(bpm_layer, GTextAlignmentCenter);
+	text_layer_set_font(bpm_layer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
+	layer_add_child(window_layer, text_layer_get_layer(bpm_layer));
 }
 
 static void window_unload(Window *window) {
