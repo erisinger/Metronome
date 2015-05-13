@@ -13,6 +13,11 @@ Archive member included because of file (symbol)
 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
                               src/Metronome.c.7.o (__aeabi_d2uiz)
 
+Allocating common symbols
+Common symbol       size              file
+
+BPM                 0x40              src/Metronome.c.7.o
+
 Discarded input sections
 
  .text          0x0000000000000000        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
@@ -29,6 +34,8 @@ Discarded input sections
                 0x0000000000000000        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .text          0x0000000000000000        0x0 src/Metronome.c.7.o
  .bss           0x0000000000000000        0x0 src/Metronome.c.7.o
+ .text.text_layer_update_proc
+                0x0000000000000000        0x4 src/Metronome.c.7.o
  .text          0x0000000000000000        0x0 appinfo.auto.c.7.o
  .bss           0x0000000000000000        0x0 appinfo.auto.c.7.o
  .bss           0x0000000000000000        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
@@ -250,8 +257,6 @@ Discarded input sections
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.graphics_fill_circle
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
- .text.graphics_fill_rect
-                0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.graphics_text_layout_get_max_used_size
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.grect_align
@@ -278,11 +283,7 @@ Discarded input sections
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.inverter_layer_get_layer
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
- .text.layer_create
-                0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.layer_create_with_data
-                0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
- .text.layer_destroy
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.layer_get_clips
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
@@ -298,8 +299,6 @@ Discarded input sections
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.layer_insert_below_sibling
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
- .text.layer_mark_dirty
-                0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.layer_remove_child_layers
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.layer_remove_from_parent
@@ -311,8 +310,6 @@ Discarded input sections
  .text.layer_set_frame
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.layer_set_hidden
-                0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
- .text.layer_set_update_proc
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text.light_enable
                 0x0000000000000000        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
@@ -713,7 +710,7 @@ LOAD /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/ar
  .pbl_header    0x0000000000000000       0x82 appinfo.auto.c.7.o
                 0x0000000000000000                __pbl_app_info
 
-.text           0x0000000000000084      0xde3
+.text           0x0000000000000084      0xfe0
  *(.text)
  .text          0x0000000000000084       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
  .text          0x0000000000000098      0x370 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
@@ -763,151 +760,201 @@ LOAD /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/ar
  .text.set_timer
                 0x00000000000009cc       0x5c src/Metronome.c.7.o
  .text.display_bpm
-                0x0000000000000a28       0x3c src/Metronome.c.7.o
+                0x0000000000000a28       0x48 src/Metronome.c.7.o
  .text.down_click_handler
-                0x0000000000000a64       0x3c src/Metronome.c.7.o
+                0x0000000000000a70       0x3c src/Metronome.c.7.o
  .text.up_click_handler
-                0x0000000000000aa0       0x3c src/Metronome.c.7.o
- .text.select_click_handler
-                0x0000000000000adc       0x20 src/Metronome.c.7.o
+                0x0000000000000aac       0x3c src/Metronome.c.7.o
  .text.window_unload
-                0x0000000000000afc       0x10 src/Metronome.c.7.o
+                0x0000000000000ae8       0x24 src/Metronome.c.7.o
  .text.window_load
-                0x0000000000000b0c       0xe4 src/Metronome.c.7.o
+                0x0000000000000b0c      0x120 src/Metronome.c.7.o
  .text.click_config_provider
-                0x0000000000000bf0       0x34 src/Metronome.c.7.o
+                0x0000000000000c2c       0x34 src/Metronome.c.7.o
+ .text.pendulum_layer_update_proc
+                0x0000000000000c60       0x44 src/Metronome.c.7.o
+                0x0000000000000c60                pendulum_layer_update_proc
+ .text.set_frame_timer
+                0x0000000000000ca4       0x5c src/Metronome.c.7.o
+ .text.select_click_handler
+                0x0000000000000d00       0x44 src/Metronome.c.7.o
+ .text.frame_timer_handler
+                0x0000000000000d44       0x5c src/Metronome.c.7.o
  .text.timer_handler
-                0x0000000000000c24       0x34 src/Metronome.c.7.o
+                0x0000000000000da0       0x74 src/Metronome.c.7.o
  .text.startup.main
-                0x0000000000000c58       0x84 src/Metronome.c.7.o
-                0x0000000000000c58                main
+                0x0000000000000e14       0x88 src/Metronome.c.7.o
+                0x0000000000000e14                main
  .text.app_event_loop
-                0x0000000000000cdc        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000cdc                app_event_loop
- .text.app_log  0x0000000000000ce8        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000ce8                app_log
+                0x0000000000000e9c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000e9c                app_event_loop
+ .text.app_log  0x0000000000000ea8        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000ea8                app_log
  .text.app_timer_register
-                0x0000000000000cf4        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000cf4                app_timer_register
+                0x0000000000000eb4        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000eb4                app_timer_register
  .text.fonts_get_system_font
-                0x0000000000000d00        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d00                fonts_get_system_font
+                0x0000000000000ec0        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000ec0                fonts_get_system_font
+ .text.graphics_fill_rect
+                0x0000000000000ecc        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000ecc                graphics_fill_rect
  .text.layer_add_child
-                0x0000000000000d0c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d0c                layer_add_child
+                0x0000000000000ed8        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000ed8                layer_add_child
+ .text.layer_create
+                0x0000000000000ee4        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000ee4                layer_create
+ .text.layer_destroy
+                0x0000000000000ef0        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000ef0                layer_destroy
  .text.layer_get_bounds
-                0x0000000000000d18        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d18                layer_get_bounds
- .text.memset   0x0000000000000d24        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d24                memset
+                0x0000000000000efc        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000efc                layer_get_bounds
+ .text.layer_mark_dirty
+                0x0000000000000f08        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f08                layer_mark_dirty
+ .text.layer_set_update_proc
+                0x0000000000000f14        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f14                layer_set_update_proc
+ .text.memset   0x0000000000000f20        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f20                memset
  .text.snprintf
-                0x0000000000000d30        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d30                snprintf
+                0x0000000000000f2c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f2c                snprintf
  .text.text_layer_create
-                0x0000000000000d3c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d3c                text_layer_create
+                0x0000000000000f38        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f38                text_layer_create
  .text.text_layer_destroy
-                0x0000000000000d48        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d48                text_layer_destroy
+                0x0000000000000f44        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f44                text_layer_destroy
  .text.text_layer_get_layer
-                0x0000000000000d54        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d54                text_layer_get_layer
+                0x0000000000000f50        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f50                text_layer_get_layer
  .text.text_layer_set_font
-                0x0000000000000d60        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d60                text_layer_set_font
+                0x0000000000000f5c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f5c                text_layer_set_font
  .text.text_layer_set_text
-                0x0000000000000d6c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d6c                text_layer_set_text
+                0x0000000000000f68        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f68                text_layer_set_text
  .text.text_layer_set_text_alignment
-                0x0000000000000d78        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d78                text_layer_set_text_alignment
+                0x0000000000000f74        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f74                text_layer_set_text_alignment
  .text.vibes_enqueue_custom_pattern
-                0x0000000000000d84        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d84                vibes_enqueue_custom_pattern
+                0x0000000000000f80        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f80                vibes_enqueue_custom_pattern
  .text.window_create
-                0x0000000000000d90        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d90                window_create
+                0x0000000000000f8c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f8c                window_create
  .text.window_destroy
-                0x0000000000000d9c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000d9c                window_destroy
+                0x0000000000000f98        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000f98                window_destroy
  .text.window_get_root_layer
-                0x0000000000000da8        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000da8                window_get_root_layer
+                0x0000000000000fa4        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000fa4                window_get_root_layer
  .text.window_set_click_config_provider
-                0x0000000000000db4        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000db4                window_set_click_config_provider
+                0x0000000000000fb0        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000fb0                window_set_click_config_provider
  .text.window_set_window_handlers
-                0x0000000000000dc0        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000dc0                window_set_window_handlers
+                0x0000000000000fbc        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000fbc                window_set_window_handlers
  .text.window_stack_push
-                0x0000000000000dcc        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000dcc                window_stack_push
+                0x0000000000000fc8        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000fc8                window_stack_push
  .text.window_single_click_subscribe
-                0x0000000000000dd8        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000dd8                window_single_click_subscribe
+                0x0000000000000fd4        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000fd4                window_single_click_subscribe
  .text.window_single_repeating_click_subscribe
-                0x0000000000000de4        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
-                0x0000000000000de4                window_single_repeating_click_subscribe
+                0x0000000000000fe0        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+                0x0000000000000fe0                window_single_repeating_click_subscribe
  *(.rodata)
  *(.rodata*)
- .rodata.segments.6673
-                0x0000000000000df0        0x4 src/Metronome.c.7.o
  .rodata.str1.1
-                0x0000000000000df4       0x73 src/Metronome.c.7.o
+                0x0000000000000fec       0x73 src/Metronome.c.7.o
+ *fill*         0x000000000000105f        0x1 
+ .rodata.segments.6686
+                0x0000000000001060        0x4 src/Metronome.c.7.o
 
-.glue_7         0x0000000000000e68        0x0
+.glue_7         0x0000000000001064        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x0000000000000e68        0x0
+.glue_7t        0x0000000000001064        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000000e68        0x0
+.vfp11_veneer   0x0000000000001064        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000000e68        0x0
+.v4_bx          0x0000000000001064        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000000e68        0x0
+.iplt           0x0000000000001064        0x0
  .iplt          0x0000000000000000        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.rel.dyn        0x0000000000000e68        0x0
+.rel.dyn        0x0000000000001064        0x0
  .rel.iplt      0x0000000000000000        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .rel.got       0x0000000000000000        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.data           0x0000000000000e68       0x20
+.data           0x0000000000001068       0x30
  *(.data)
- .data          0x0000000000000e68        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
- .data          0x0000000000000e68        0x4 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x0000000000000e68                __dso_handle
- .data          0x0000000000000e6c        0x8 src/Metronome.c.7.o
- .data          0x0000000000000e74        0x0 appinfo.auto.c.7.o
- .data          0x0000000000000e74        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
- .data          0x0000000000000e74        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .data          0x0000000000000e74        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .data          0x0000000000000e74        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
- .data          0x0000000000000e74        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
- .data          0x0000000000000e74        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
- .data          0x0000000000000e74        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
- .data          0x0000000000000e74        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .data          0x0000000000001068        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x0000000000001068        0x4 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000001068                __dso_handle
+ .data          0x000000000000106c        0x8 src/Metronome.c.7.o
+ .data          0x0000000000001074        0x0 appinfo.auto.c.7.o
+ .data          0x0000000000001074        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/Pebble/lib/libpebble.a(tmpycZPtxpebble.o)
+ .data          0x0000000000001074        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .data          0x0000000000001074        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .data          0x0000000000001074        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .data          0x0000000000001074        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .data          0x0000000000001074        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+ .data          0x0000000000001074        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000001074        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
  *(.data.*)
- *fill*         0x0000000000000e74        0x4 
+ .data.FRAMES   0x0000000000001074        0x4 src/Metronome.c.7.o
+                0x0000000000001074                FRAMES
+ .data.PENDULUM_W
+                0x0000000000001078        0x4 src/Metronome.c.7.o
+                0x0000000000001078                PENDULUM_W
+ .data.PENDULUM_H
+                0x000000000000107c        0x4 src/Metronome.c.7.o
+                0x000000000000107c                PENDULUM_H
+ .data.left_to_right
+                0x0000000000001080        0x1 src/Metronome.c.7.o
+                0x0000000000001080                left_to_right
+ *fill*         0x0000000000001081        0x7 
  .data.duration_seconds
-                0x0000000000000e78        0x8 src/Metronome.c.7.o
- .data.bpm      0x0000000000000e80        0x8 src/Metronome.c.7.o
+                0x0000000000001088        0x8 src/Metronome.c.7.o
+ .data.bpm      0x0000000000001090        0x8 src/Metronome.c.7.o
 
-.igot.plt       0x0000000000000e88        0x0
+.igot.plt       0x0000000000001098        0x0
  .igot.plt      0x0000000000000000        0x0 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.bss            0x0000000000000e88       0x14
+.got            0x0000000000001098        0x4
+ .got           0x0000000000001098        0x4 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+
+.got.plt        0x000000000000109c        0xc
+ .got.plt       0x000000000000109c        0xc /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x000000000000109c                _GLOBAL_OFFSET_TABLE_
+
+.bss            0x00000000000010a8       0x60
  *(.bss)
  *(.bss.*)
+ .bss.frame_timer
+                0x00000000000010a8        0x4 src/Metronome.c.7.o
+ .bss.pendulum_layer
+                0x00000000000010ac        0x4 src/Metronome.c.7.o
  .bss.text_layer
-                0x0000000000000e88        0x4 src/Metronome.c.7.o
+                0x00000000000010b0        0x4 src/Metronome.c.7.o
  .bss.bpm_layer
-                0x0000000000000e8c        0x4 src/Metronome.c.7.o
- .bss.running   0x0000000000000e90        0x1 src/Metronome.c.7.o
- *fill*         0x0000000000000e91        0x3 
- .bss.timer     0x0000000000000e94        0x4 src/Metronome.c.7.o
- .bss.window    0x0000000000000e98        0x4 src/Metronome.c.7.o
+                0x00000000000010b4        0x4 src/Metronome.c.7.o
+ .bss.running   0x00000000000010b8        0x1 src/Metronome.c.7.o
+ *fill*         0x00000000000010b9        0x3 
+ .bss.LEFT      0x00000000000010bc        0x4 src/Metronome.c.7.o
+                0x00000000000010bc                LEFT
+ .bss.timer     0x00000000000010c0        0x4 src/Metronome.c.7.o
+ .bss.window    0x00000000000010c4        0x4 src/Metronome.c.7.o
+ COMMON         0x00000000000010c8       0x40 src/Metronome.c.7.o
+                0x00000000000010c8                BPM
 
 DISCARD
  libc.a(*)
@@ -950,60 +997,60 @@ OUTPUT(/Users/erikrisinger/Dropbox/Coding/Pebble/Metronome/build/pebble-app.elf 
  .comment       0x0000000000000000       0x4f appinfo.auto.c.7.o
  .comment       0x0000000000000000       0x4f /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000     0x1257
- .debug_info    0x0000000000000000      0xbb8 src/Metronome.c.7.o
- .debug_info    0x0000000000000bb8      0x302 appinfo.auto.c.7.o
- .debug_info    0x0000000000000eba       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_info    0x0000000000000f73       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_info    0x000000000000102c       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_info    0x00000000000010e5       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_info    0x000000000000119e       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+.debug_info     0x0000000000000000     0x1554
+ .debug_info    0x0000000000000000      0xeb5 src/Metronome.c.7.o
+ .debug_info    0x0000000000000eb5      0x302 appinfo.auto.c.7.o
+ .debug_info    0x00000000000011b7       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x0000000000001270       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x0000000000001329       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_info    0x00000000000013e2       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_info    0x000000000000149b       0xb9 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
 
-.debug_abbrev   0x0000000000000000      0x400
- .debug_abbrev  0x0000000000000000      0x2fe src/Metronome.c.7.o
- .debug_abbrev  0x00000000000002fe       0x9e appinfo.auto.c.7.o
- .debug_abbrev  0x000000000000039c       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_abbrev  0x00000000000003b0       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_abbrev  0x00000000000003c4       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_abbrev  0x00000000000003d8       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_abbrev  0x00000000000003ec       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+.debug_abbrev   0x0000000000000000      0x475
+ .debug_abbrev  0x0000000000000000      0x373 src/Metronome.c.7.o
+ .debug_abbrev  0x0000000000000373       0x9e appinfo.auto.c.7.o
+ .debug_abbrev  0x0000000000000411       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x0000000000000425       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_abbrev  0x0000000000000439       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_abbrev  0x000000000000044d       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_abbrev  0x0000000000000461       0x14 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
 
-.debug_loc      0x0000000000000000      0x297
- .debug_loc     0x0000000000000000      0x297 src/Metronome.c.7.o
+.debug_loc      0x0000000000000000      0x3ed
+ .debug_loc     0x0000000000000000      0x3ed src/Metronome.c.7.o
 
-.debug_aranges  0x0000000000000000      0x120
+.debug_aranges  0x0000000000000000      0x140
  .debug_aranges
-                0x0000000000000000       0x68 src/Metronome.c.7.o
+                0x0000000000000000       0x88 src/Metronome.c.7.o
  .debug_aranges
-                0x0000000000000068       0x18 appinfo.auto.c.7.o
+                0x0000000000000088       0x18 appinfo.auto.c.7.o
  .debug_aranges
-                0x0000000000000080       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+                0x00000000000000a0       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
  .debug_aranges
-                0x00000000000000a0       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+                0x00000000000000c0       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
  .debug_aranges
-                0x00000000000000c0       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+                0x00000000000000e0       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
  .debug_aranges
-                0x00000000000000e0       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+                0x0000000000000100       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
  .debug_aranges
-                0x0000000000000100       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+                0x0000000000000120       0x20 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
 
-.debug_ranges   0x0000000000000000       0x70
- .debug_ranges  0x0000000000000000       0x70 src/Metronome.c.7.o
+.debug_ranges   0x0000000000000000       0x90
+ .debug_ranges  0x0000000000000000       0x90 src/Metronome.c.7.o
 
-.debug_line     0x0000000000000000      0x9f3
- .debug_line    0x0000000000000000      0x285 src/Metronome.c.7.o
- .debug_line    0x0000000000000285      0x12a appinfo.auto.c.7.o
- .debug_line    0x00000000000003af      0x20a /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x00000000000005b9      0x226 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x00000000000007df      0x10c /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_line    0x00000000000008eb       0x86 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_line    0x0000000000000971       0x82 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+.debug_line     0x0000000000000000      0xa5d
+ .debug_line    0x0000000000000000      0x2ef src/Metronome.c.7.o
+ .debug_line    0x00000000000002ef      0x12a appinfo.auto.c.7.o
+ .debug_line    0x0000000000000419      0x20a /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x0000000000000623      0x226 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x0000000000000849      0x10c /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x0000000000000955       0x86 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_line    0x00000000000009db       0x82 /Users/erikrisinger/pebble-dev/PebbleSDK-2.9/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixunsdfsi.o)
 
-.debug_str      0x0000000000000000      0x743
- .debug_str     0x0000000000000000      0x5bc src/Metronome.c.7.o
-                                        0x64c (size before relaxing)
- .debug_str     0x00000000000005bc      0x187 appinfo.auto.c.7.o
+.debug_str      0x0000000000000000      0x8da
+ .debug_str     0x0000000000000000      0x753 src/Metronome.c.7.o
+                                        0x818 (size before relaxing)
+ .debug_str     0x0000000000000753      0x187 appinfo.auto.c.7.o
                                         0x27f (size before relaxing)
 
-.debug_frame    0x0000000000000000      0x118
- .debug_frame   0x0000000000000000      0x118 src/Metronome.c.7.o
+.debug_frame    0x0000000000000000      0x180
+ .debug_frame   0x0000000000000000      0x180 src/Metronome.c.7.o
